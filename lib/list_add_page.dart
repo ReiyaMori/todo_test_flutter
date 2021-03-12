@@ -66,7 +66,8 @@ class _TodoAddPageState extends State<TodoAddPage>{
                 //popで前の画面に戻る
                 //popの引数にデータを渡す
                 onPressed: (){
-                  Navigator.of(context).pop(_task);
+                  final snackbar = SnackBar(content: Text('入力が正しくありません'), action: SnackBarAction(label: 'agree', onPressed: ()=>SnackBarClosedReason.swipe),);
+                  (_task['title'] != '' && _task['details'] != '')? Navigator.of(context).pop(_task):ScaffoldMessenger.of(context).showSnackBar(snackbar);
                 },
               ),
             ),
