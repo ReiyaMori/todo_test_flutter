@@ -1,4 +1,5 @@
 import 'package:todo_test_app/list_add_page.dart';
+import 'package:todo_test_app/sign_up.dart';
 import 'package:todo_test_app/task_edit.dart';
 import 'package:flutter/material.dart';
 
@@ -37,6 +38,16 @@ class _TodoListPageState extends State<TodoListPage>{
     return Scaffold(
       appBar: AppBar(
         title: Text('リスト一覧'),
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: <Widget>[
+            DrawerHeader(child: Text('Menu'), ),
+            ListTile(leading: Icon(Icons.person), title: Text('Sign UP'),onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignUp()));
+            }),
+          ],
+        ),
       ),
 
       //FloatingActionButtonでリスト追加
